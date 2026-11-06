@@ -60,6 +60,23 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setChat(false); });
   }
 
+  // Selector de idioma: la versión en inglés aún no existe
+  document.querySelectorAll('.lang').forEach(function (g) {
+    var tip = document.createElement('span');
+    tip.className = 'lang-tip'; tip.setAttribute('role', 'status');
+    tip.textContent = 'English version coming soon';
+    g.appendChild(tip);
+    g.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (a.hasAttribute('data-en')) {
+          tip.classList.add('show');
+          clearTimeout(tip._t); tip._t = setTimeout(function () { tip.classList.remove('show'); }, 2200);
+        }
+      });
+    });
+  });
+
   // Tarjetas desplegables
   document.querySelectorAll('.xc-head').forEach(function (b) {
     b.addEventListener('click', function () {
