@@ -77,12 +77,17 @@
     });
   });
 
-  // Tarjetas desplegables
-  document.querySelectorAll('.xc-head').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var card = b.closest('.xc');
-      var open = card.classList.toggle('open');
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  // Tarjetas: en pantallas táctiles se abren al tocar
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+  document.querySelectorAll('.xc').forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (canHover) return;
+      var open = !card.classList.contains('open');
+      document.querySelectorAll('.xc.open').forEach(function (c) { if (c !== card) c.classList.remove('open'); });
+      card.classList.toggle('open', open);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('open'); }
     });
   });
 
