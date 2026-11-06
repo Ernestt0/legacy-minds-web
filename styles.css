@@ -406,6 +406,59 @@ body.lock{overflow:hidden}
 .agenda.joined::before{background:radial-gradient(500px 340px at 95% 100%,rgba(255,122,61,.16),transparent 70%)}
 .agenda.joined>.wrap{border-top:1px solid rgba(255,255,255,.1);padding-top:clamp(56px,7vw,88px)}
 
+
+/* ---------- Páginas internas v3 ---------- */
+.phero.dark{background:var(--navy);color:#fff;padding:150px 0 110px}
+.phero.dark::before{width:auto;height:auto;inset:0;right:0;top:0;border-radius:0;background:radial-gradient(720px 520px at 88% 10%,rgba(47,107,240,.5),transparent 65%),radial-gradient(620px 440px at 0% 100%,rgba(31,85,209,.38),transparent 70%),radial-gradient(420px 320px at 60% 90%,rgba(255,122,61,.12),transparent 70%),linear-gradient(180deg,transparent 75%,var(--navy))}
+.phero.dark::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 40% 40%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 40% 40%,#000 25%,transparent 72%)}
+.phero.dark h1{color:#fff;margin:16px 0 20px}
+.phero.dark .lead{color:var(--muted-d)}
+.phero.dark .eyebrow{margin-top:22px}
+.phero.dark .crumbs{color:var(--muted-d)}
+.phero.dark .crumbs a:hover{color:#fff}
+.phero.dark .hl{color:#8DB0FF}
+.phero.dark .in-1,.phero.dark .in-2,.phero.dark .in-3,.phero.dark .in-4,.phero.dark .in-5{animation:rise .9s var(--ease) both}
+.phero.dark .in-2{animation-delay:.1s}.phero.dark .in-3{animation-delay:.2s}.phero.dark .in-4{animation-delay:.3s}.phero.dark .in-5{animation-delay:.25s}
+.phero-visual{position:relative;width:100%;max-width:480px;justify-self:center}
+.pv-photo{border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 44px 80px -34px rgba(0,0,0,.75);aspect-ratio:4/4.6}
+.pv-photo img{width:100%;height:100%;object-fit:cover;animation:kenburns 24s ease-in-out infinite alternate}
+.phero-visual .float.a{left:-12%;top:14%;right:auto;bottom:auto}
+.phero-visual .float.b{right:-8%;bottom:14%;left:auto;top:auto}
+.about-logo{justify-self:center;width:100%;max-width:420px;padding:40px;border-radius:var(--r-lg);background:#fff;box-shadow:0 44px 80px -34px rgba(0,0,0,.75);animation:rise .9s .25s var(--ease) both}
+.about-logo img{width:100%;animation:bob 7s ease-in-out infinite}
+.intro-sec{padding:clamp(64px,8vw,104px) 0}
+.intro p:first-child{font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,2.1vw,1.55rem);line-height:1.5;letter-spacing:-.01em;color:var(--ink)}
+.intro p:first-child::before{content:"";display:block;width:56px;height:4px;border-radius:4px;margin:0 auto 26px;background:linear-gradient(90deg,var(--blue),var(--accent))}
+.grid2.fgrid3{gap:20px}
+.vt-media.tall{margin-top:0;aspect-ratio:4/5;max-width:500px;justify-self:center;width:100%}
+.split h2 .hl{color:var(--blue)}
+.cta-band{border-top:1px solid rgba(255,255,255,.08)}
+.cta-band .agenda-top{margin-bottom:0;align-items:center}
+.cta-band .btn{margin-top:28px}
+.mv .body{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.mv .body .xi{width:54px;height:54px;border-radius:16px}
+.mv .body .xi svg{width:26px;height:26px}
+.mv h2{margin-bottom:0}
+@media (hover:hover){.mv article:hover .xi svg *,.vt-item:hover .xi svg *{animation:drawLine 1s var(--ease) both}}
+@media (max-width:1080px){
+  .phero.dark{padding:132px 0 90px}
+  .phero-visual{max-width:440px}
+  .phero-visual .float.a{left:-4%}
+  .phero-visual .float.b{right:-4%}
+}
+@media (max-width:640px){
+  .phero.dark{padding:110px 0 64px}
+  .phero.dark .btn{width:100%}
+  .phero-visual{max-width:340px}
+  .phero-visual .float.a{left:-2%;top:8%}
+  .phero-visual .float.b{right:-2%;bottom:8%}
+  .about-logo{padding:26px;max-width:300px}
+  .grid2.fgrid3{grid-template-columns:1fr}
+  .cta-band .btn{width:100%}
+  .vt-media.tall{aspect-ratio:4/3.4}
+}
+@media (prefers-reduced-motion:reduce){.pv-photo img,.about-logo img,.phero.dark [class*="in-"]{animation:none}}
+
 /* ---------- Pie ---------- */
 .footer{background:var(--navy);color:var(--muted-d);padding:80px 0 34px;font-size:.95rem}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1.3fr 1.1fr;gap:44px}
