@@ -60,6 +60,45 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setChat(false); });
   }
 
+  // Globo del chat: mensajes que rotan en sincronía con el ícono
+  var chatEl = document.getElementById('chat');
+  var tip = chatEl && chatEl.querySelector('.chat-tip');
+  var tipTxt = tip && tip.querySelector('.tip-txt');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (tipTxt && !reduceMotion) {
+    var msgs = [['¿Dudas? ¡Chatea con nosotros!', false], ['Escríbenos por WhatsApp', false], ['o por WeChat', true]];
+    var k = 0;
+    function write(text) {
+      tipTxt.innerHTML = '';
+      text.split('').forEach(function (c, i) {
+        var s = document.createElement('span');
+        s.className = c === ' ' ? 'sp' : 'ch';
+        if (c !== ' ') { s.textContent = c; s.style.animationDelay = (i * 28) + 'ms'; }
+        tipTxt.appendChild(s);
+      });
+    }
+    write(msgs[0][0]);
+    setInterval(function () {
+      if (chatEl.classList.contains('open') || document.hidden) return;
+      k = (k + 1) % msgs.length;
+      tip.classList.add('out');
+      setTimeout(function () {
+        tip.classList.remove('out');
+        write(msgs[k][0]);
+        chatEl.classList.toggle('wc', msgs[k][1]);
+      }, 300);
+    }, 3200);
+  }
+
+  // Luz que sigue al cursor en las tarjetas oscuras
+  document.querySelectorAll('.fc').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
   // Selector de idioma: la versión en inglés aún no existe
   document.querySelectorAll('.lang').forEach(function (g) {
     var tip = document.createElement('span');

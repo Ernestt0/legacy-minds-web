@@ -298,7 +298,7 @@ body.lock{overflow:hidden}
 /* ---------- Chatea con nosotros ---------- */
 .chat{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 .chat-row{display:flex;align-items:center;gap:14px}
-.chat-tip{background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.18);font:600 .9rem/1 var(--display);padding:13px 18px;border-radius:14px;white-space:nowrap;box-shadow:0 12px 28px -12px rgba(10,26,63,.55);transform-origin:right center;animation:tipIn .7s 1.2s var(--spring) both;transition:opacity .25s,transform .35s var(--ease)}
+.chat-tip{background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.18);font:600 .9rem/1 var(--display);padding:12px 18px 12px 14px;min-height:42px;display:inline-flex;align-items:center;border-radius:14px;white-space:nowrap;box-shadow:0 12px 28px -12px rgba(10,26,63,.55);transform-origin:right center;animation:tipIn .7s 1.2s var(--spring) both,tipFloat 4s 2s ease-in-out infinite;transition:opacity .25s,transform .35s var(--ease)}
 .chat.open .chat-tip{animation:none;opacity:0;transform:translateX(8px) scale(.95);pointer-events:none}
 .chat-btn{position:relative;width:62px;height:62px;flex:none;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;background:linear-gradient(145deg,#2BD475,#16A85C);color:#fff;box-shadow:0 14px 30px -10px rgba(19,163,90,.75),0 2px 6px rgba(10,26,63,.15);transition:transform .5s var(--spring),box-shadow .3s;-webkit-tap-highlight-color:transparent}
 .chat-btn::before{content:"";position:absolute;inset:0;border-radius:50%;animation:ping 2.6s ease-out infinite}
@@ -307,8 +307,20 @@ body.lock{overflow:hidden}
 .chat-icons{position:relative;width:30px;height:30px;display:grid;place-items:center}
 .chat-icons img{position:absolute;width:28px;height:auto;transition:opacity .4s,transform .5s var(--spring)}
 .chat-icons img+img{opacity:0;transform:scale(.5) rotate(-30deg)}
-.chat:not(.open) .chat-icons img:first-child{animation:swapA 6s infinite}
-.chat:not(.open) .chat-icons img+img{animation:swapB 6s infinite}
+.chat.wc .chat-icons img:first-child{opacity:0;transform:scale(.5) rotate(30deg)}
+.chat.wc .chat-icons img+img{opacity:1;transform:none}
+.tip-txt{display:inline-block;white-space:nowrap}
+.tip-txt .ch{display:inline-block;opacity:0;transform:translateY(6px);filter:blur(3px);animation:chIn .45s var(--ease) forwards}
+.tip-txt .sp{display:inline-block;width:.28em}
+.chat-tip.out .tip-txt{opacity:0;transform:translateY(-6px);filter:blur(3px);transition:opacity .25s,transform .3s,filter .3s}
+.tip-dots{display:inline-flex;gap:3px;margin-right:8px;vertical-align:middle}
+.tip-dots i{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:dot 1.2s ease-in-out infinite}
+.tip-dots i:nth-child(2){animation-delay:.15s}.tip-dots i:nth-child(3){animation-delay:.3s}
+.chat-tip{position:relative}
+.chat-tip::after{content:"";position:absolute;right:-6px;top:50%;width:12px;height:12px;background:var(--navy);border-right:1px solid rgba(255,255,255,.18);border-top:1px solid rgba(255,255,255,.18);transform:translateY(-50%) rotate(45deg);border-radius:0 3px 0 0}
+@keyframes chIn{to{opacity:1;transform:none;filter:none}}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+@keyframes tipFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
 .chat-x{display:none;place-items:center}
 .chat-x svg{width:26px;height:26px}
 .chat.open .chat-icons{display:none}
@@ -335,6 +347,48 @@ body.lock{overflow:hidden}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(37,193,103,.5)}70%,100%{box-shadow:0 0 0 14px rgba(37,193,103,0)}}
 @keyframes swapA{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:scale(.5) rotate(30deg)}100%{opacity:1;transform:none}}
 @keyframes swapB{0%,42%{opacity:0;transform:scale(.5) rotate(-30deg)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:scale(.5) rotate(-30deg)}}
+
+
+/* Tus Ventajas: dos columnas */
+.vt-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+.vt-intro h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin:16px 0 18px}
+.vt-intro>p{color:var(--muted);font-size:1.06rem;max-width:520px}
+.vt-media{position:relative;margin-top:30px;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/11;box-shadow:var(--shadow-lg)}
+.vt-media img{width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-in-out infinite alternate}
+.vt-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,26,63,.55))}
+.vt-media figcaption{position:absolute;left:18px;bottom:18px;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.95);font:600 .88rem var(--display);color:var(--ink);box-shadow:0 12px 24px -12px rgba(0,0,0,.5)}
+.vt-media .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,122,61,.6);animation:pulseDot 2s infinite}
+.vt-list{display:grid;gap:16px}
+.vt-item{display:flex;gap:20px;align-items:flex-start;padding:26px 26px 26px 24px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);transition:transform .55s var(--spring),box-shadow .4s,border-color .3s,background-color .3s}
+.vt-item .xi{width:58px;height:58px;border-radius:17px}
+.vt-item .xi svg{width:28px;height:28px}
+.vt-item h3{font-size:1.22rem;margin-bottom:8px}
+.vt-item h3 .hl,.fc h3 .hl{color:var(--blue)}
+.vt-item p{color:var(--muted);font-size:.98rem}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-2%,-2%)}}
+@keyframes pulseDot{70%{box-shadow:0 0 0 10px rgba(255,122,61,0)}100%{box-shadow:0 0 0 0 rgba(255,122,61,0)}}
+
+/* ¿Por qué elegir…?: sección oscura con tarjetas de vidrio */
+.benef{background:var(--navy);position:relative;overflow:hidden;isolation:isolate}
+.benef::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 420px at 10% 0%,rgba(47,107,240,.35),transparent 70%),radial-gradient(520px 360px at 95% 100%,rgba(255,122,61,.12),transparent 70%)}
+.dark .head h2{color:#fff}
+.dark .head p{color:var(--muted-d)}
+.fgrid3{gap:20px}
+.fc{position:relative;display:flex;flex-direction:column;gap:14px;padding:28px 26px 30px;border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);overflow:hidden;isolation:isolate;transition:transform .55s var(--spring),border-color .3s}
+.fc::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(79,134,255,.28),transparent 70%);opacity:0;transition:opacity .35s}
+.fc h3{color:#fff;font-size:1.15rem}
+.dark .fc h3 .hl{color:#8DB0FF}
+.fc p{color:var(--muted-d);font-size:.95rem;line-height:1.65}
+.fc .xi{width:54px;height:54px;border-radius:16px}
+.fc .xi svg{width:26px;height:26px}
+@media (hover:hover){
+  .vt-item:hover{transform:translateX(-6px);border-color:#CCD9F5;box-shadow:var(--shadow-lg)}
+  .vt-item:hover .xi svg *,.fc:hover .xi svg *{animation:drawLine 1s var(--ease) both}
+  .fc:hover{transform:translateY(-6px);border-color:rgba(141,176,255,.4)}
+  .fc:hover::before{opacity:1}
+}
+@media (max-width:1080px){.vt-grid{grid-template-columns:1fr;gap:44px}.vt-intro>p{max-width:none}}
+@media (max-width:640px){.vt-item{padding:22px 20px;gap:16px}.vt-item .xi{width:50px;height:50px}.fc{padding:24px 22px}}
 
 /* ---------- Pie ---------- */
 .footer{background:var(--navy);color:var(--muted-d);padding:80px 0 34px;font-size:.95rem}
@@ -368,8 +422,9 @@ body.lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
-  .hero [class*="in-"],.hero-photo img,.hero-ill,.float,.chat-btn::before,.agenda-steps li,.agenda-steps i,.agenda-steps em{animation:none}
-  .chat:not(.open) .chat-icons img:first-child,.chat:not(.open) .chat-icons img+img,.chat-tip{animation:none}
+  .hero [class*="in-"],.hero-photo img,.hero-ill,.float,.chat-btn::before,.vt-media img,.vt-media .dot,.agenda-steps li,.agenda-steps i,.agenda-steps em{animation:none}
+  .chat-tip,.tip-dots i,.tip-txt .ch{animation:none}
+  .tip-txt .ch{opacity:1;transform:none;filter:none}
   .u::after{animation:none;transform:scaleX(1)}
 }
 
@@ -429,7 +484,7 @@ body.lock{overflow:hidden}
   .fgrid{grid-template-columns:1fr;gap:36px}
   .chat{right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px))}
   .chat-btn{width:56px;height:56px}
-  .chat-tip{font-size:.8rem;padding:11px 14px;animation:tipIn .7s 1.2s var(--spring) both,tipOut .5s 7s var(--ease) forwards}
+  .chat-tip{font-size:.8rem;padding:11px 14px;animation:tipIn .7s 1.2s var(--spring) both,tipOut .5s 12s var(--ease) forwards}
   .cal{height:760px}
   .agenda-top{grid-template-columns:1fr;gap:28px;margin-bottom:32px}
 
