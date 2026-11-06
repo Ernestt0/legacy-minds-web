@@ -66,7 +66,10 @@
   var tipTxt = tip && tip.querySelector('.tip-txt');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (tipTxt && !reduceMotion) {
-    var msgs = [['¿Dudas? ¡Chatea con nosotros!', false], ['Escríbenos por WhatsApp', false], ['o por WeChat', true]];
+    var isEn = document.documentElement.lang === 'en';
+    var msgs = isEn
+      ? [['Questions? Chat with us!', false], ['Message us on WhatsApp', false], ['or on WeChat', true]]
+      : [['¿Dudas? ¡Chatea con nosotros!', false], ['Escríbenos por WhatsApp', false], ['o por WeChat', true]];
     var k = 0;
     function write(text) {
       tipTxt.innerHTML = '';
@@ -99,20 +102,10 @@
     });
   });
 
-  // Selector de idioma: la versión en inglés aún no existe
-  document.querySelectorAll('.lang').forEach(function (g) {
-    var tip = document.createElement('span');
-    tip.className = 'lang-tip'; tip.setAttribute('role', 'status');
-    tip.textContent = 'English version coming soon';
-    g.appendChild(tip);
-    g.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (a.hasAttribute('data-en')) {
-          tip.classList.add('show');
-          clearTimeout(tip._t); tip._t = setTimeout(function () { tip.classList.remove('show'); }, 2200);
-        }
-      });
+  // Selector de idioma: recordar la elección del visitante
+  document.querySelectorAll('.lang a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem('lml-lang', a.getAttribute('lang')); } catch (e) {}
     });
   });
 
