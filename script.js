@@ -41,6 +41,25 @@
     });
   });
 
+  // Botón "Chatea con nosotros": menú con WhatsApp y QR de WeChat
+  var chat = document.getElementById('chat');
+  if (chat) {
+    var chatBtn = chat.querySelector('.chat-btn');
+    function setChat(open) {
+      chat.classList.toggle('open', open);
+      if (!open) chat.classList.remove('qr');
+      chatBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    chatBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setChat(!chat.classList.contains('open'));
+    });
+    chat.querySelector('[data-wechat]').addEventListener('click', function () { chat.classList.add('qr'); });
+    chat.querySelector('[data-wechat-back]').addEventListener('click', function () { chat.classList.remove('qr'); });
+    document.addEventListener('click', function (e) { if (!chat.contains(e.target)) setChat(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setChat(false); });
+  }
+
   // Aparición al hacer scroll
   var items = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window) {

@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202611061100">
+<link rel="stylesheet" href="styles.css?v=202611061150">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body data-top="light">
@@ -48,7 +48,24 @@
   <a href="#contacto">Contáctanos</a>
   <a class="btn btn-accent" href="https://cal.com/legacymidslimited/30min" target="_blank" rel="noopener">Agendar</a>
 </nav>
-<a class="wa" href="https://wa.me/573203467217" target="_blank" rel="noopener" aria-label="Chatea con nosotros"><img src="img/boton-chatea.webp" alt="Chatea con nosotros" width="168" height="78"></a>
+<div class="chat" id="chat">
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Chatea con nosotros">
+    <div class="chat-list">
+      <a class="chat-opt" href="https://wa.me/573203467217?text=Hola%20Legacy%20Minds,%20me%20gustar%C3%ADa%20tener%20m%C3%A1s%20informaci%C3%B3n%20a%20cerca%20de" target="_blank" rel="noopener"><span class="chat-ico wa-bg"><img src="img/ico-whatsapp.png" alt="" width="28" height="28"></span>WhatsApp</a>
+      <button class="chat-opt" type="button" data-wechat><span class="chat-ico wc-bg"><img src="img/ico-wechat.png" alt="" width="28" height="24"></span>WeChat</button>
+    </div>
+    <div class="chat-qr">
+      <button class="chat-back" type="button" data-wechat-back aria-label="Volver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <img src="img/wechat-qr.png" alt="Código QR de WeChat" width="220" height="223">
+      <span class="chat-qr-label"><img src="img/ico-wechat.png" alt="" width="20" height="17">WeChat</span>
+    </div>
+  </div>
+  <button class="chat-btn" type="button" aria-expanded="false" aria-controls="chat-panel">
+    <span class="chat-icons" aria-hidden="true"><img src="img/ico-whatsapp-blanco.png" alt="" width="22" height="22"><img src="img/ico-wechat-blanco.png" alt="" width="22" height="19"></span>
+    <span class="chat-txt">Chatea con nosotros</span>
+    <span class="chat-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+  </button>
+</div>
 <main id="main">
 <section class="phero">
   <div class="wrap phero-grid">
@@ -116,6 +133,6 @@
     <div class="copy"><span>© 2025 Legacy Minds Limited. Todos los derechos reservados.</span><span>ES</span></div>
   </div>
 </footer>
-<script src="script.js?v=202611061100"></script>
+<script src="script.js?v=202611061150"></script>
 </body>
 </html>
