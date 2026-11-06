@@ -73,12 +73,24 @@ p{text-wrap:pretty}
 .nav a:hover,.nav button:hover{color:#fff;background:rgba(255,255,255,.1)}
 .nav button svg{width:14px;height:14px;transition:transform .3s var(--ease)}
 .has-menu{position:relative}
-.menu{position:absolute;top:calc(100% + 12px);left:50%;min-width:280px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .25s,transform .4s var(--spring),visibility .25s}
+.menu{position:absolute;top:calc(100% + 12px);left:50%;min-width:300px;white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .25s,transform .4s var(--spring),visibility .25s}
 .menu::before{content:"";position:absolute;inset:-14px 0 auto;height:14px}
 .has-menu:hover .menu,.has-menu:focus-within .menu,.has-menu.open .menu{opacity:1;visibility:visible;transform:translate(-50%,0)}
 .has-menu:hover button svg,.has-menu.open button svg{transform:rotate(180deg)}
-.nav .menu a{display:flex;width:100%;color:var(--ink);padding:12px 14px;border-radius:12px}
-.nav .menu a:hover{background:var(--blue-tint);color:var(--blue)}
+.nav .menu a{display:flex;align-items:center;gap:12px;width:100%;color:var(--ink);padding:9px 14px 9px 9px;border-radius:12px;transition:background-color .2s,color .2s,transform .45s var(--spring)}
+.nav .menu a:hover{background:var(--blue-tint);color:var(--blue);transform:translateX(4px)}
+.mi{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none;color:var(--blue);background:var(--blue-tint);transition:background .3s,color .3s,transform .5s var(--spring)}
+.mi svg{width:19px;height:19px}
+.mi svg *{stroke-dasharray:1;stroke-dashoffset:0}
+.nav .menu a:hover .mi{background:var(--blue);color:#fff;transform:rotate(-6deg) scale(1.06)}
+.nav .menu a:hover .mi svg *{animation:drawLine .8s var(--ease) both}
+.menu a{opacity:0;transform:translateY(6px)}
+.has-menu:hover .menu a,.has-menu:focus-within .menu a,.has-menu.open .menu a{animation:menuIn .45s var(--ease) forwards}
+.menu a:nth-child(2){animation-delay:.04s!important}.menu a:nth-child(3){animation-delay:.08s!important}.menu a:nth-child(4){animation-delay:.12s!important}.menu a:nth-child(5){animation-delay:.16s!important}
+@keyframes menuIn{to{opacity:1;transform:none}}
+.drawer details a{display:flex!important;align-items:center;gap:12px}
+.drawer .mi{width:34px;height:34px;background:rgba(255,255,255,.08);color:#A9C1FF}
+@media (prefers-reduced-motion:reduce){.menu a{opacity:1;transform:none;animation:none!important}}
 .header-cta{display:flex;align-items:center;gap:16px}
 .header-cta .btn{padding:12px 20px;font-size:.9rem}
 .lang{position:relative;display:inline-flex;align-items:center;gap:2px;padding:4px 4px 4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff}
