@@ -223,13 +223,19 @@ body.lock{overflow:hidden}
 .agenda-top{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;margin-bottom:48px}
 .agenda h2{color:#fff;font-size:clamp(2rem,4.2vw,3.3rem);margin:16px 0 18px;max-width:720px}
 .agenda-top p{color:var(--muted-d);font-size:1.1rem;max-width:620px}
-.agenda-facts{list-style:none;display:grid;gap:12px}
-.agenda-facts li{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);transition:transform .5s var(--spring),background-color .3s}
-.agenda-facts li:hover{transform:translateX(-6px);background:rgba(255,255,255,.09)}
-.agenda-facts i{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--accent);color:#fff;box-shadow:0 10px 20px -10px rgba(255,122,61,.9)}
-.agenda-facts i svg{width:22px;height:22px}
-.agenda-facts b{display:block;font-family:var(--display);font-weight:600;color:#fff;font-size:1.02rem}
-.agenda-facts span{font-size:.9rem;color:var(--muted-d)}
+.agenda-steps{list-style:none;display:grid;gap:12px;position:relative}
+.agenda-steps::before{content:"";position:absolute;left:38px;top:30px;bottom:30px;width:2px;background:linear-gradient(rgba(255,255,255,.14),rgba(255,255,255,.14));}
+.agenda-steps li{position:relative;display:flex;align-items:center;gap:16px;padding:14px 18px 16px 16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);overflow:hidden;animation:stepOn 9s infinite;animation-delay:calc(var(--i) * 3s)}
+.agenda-steps li:nth-child(1){--i:0}.agenda-steps li:nth-child(2){--i:1}.agenda-steps li:nth-child(3){--i:2}
+.agenda-steps i{position:relative;z-index:1;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;color:#fff;background:#1C3570;animation:stepIcon 9s infinite;animation-delay:inherit}
+.agenda-steps i svg{width:22px;height:22px}
+.agenda-steps small{display:block;font:600 .7rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#8DB0FF;margin-bottom:5px}
+.agenda-steps b{display:block;font-family:var(--display);font-weight:600;color:#fff;font-size:1.02rem;margin-bottom:2px}
+.agenda-steps span{font-size:.88rem;color:var(--muted-d)}
+.agenda-steps em{position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--accent),#FFB27F);transform:scaleX(0);transform-origin:left;animation:stepBar 9s linear infinite;animation-delay:inherit}
+@keyframes stepOn{0%,30%{background:rgba(255,255,255,.1);border-color:rgba(255,122,61,.55);transform:translateX(-6px)}36%,100%{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);transform:none}}
+@keyframes stepIcon{0%,30%{background:var(--accent);box-shadow:0 10px 22px -8px rgba(255,122,61,.95)}36%,100%{background:#1C3570;box-shadow:none}}
+@keyframes stepBar{0%{transform:scaleX(0);opacity:1}32%{transform:scaleX(1);opacity:1}36%,100%{transform:scaleX(1);opacity:0}}
 .cal-wrap{position:relative;border-radius:var(--r-lg);padding:1.5px;background:linear-gradient(135deg,rgba(255,122,61,.9),rgba(47,107,240,.6) 40%,rgba(255,255,255,.12));box-shadow:0 50px 90px -40px rgba(0,0,0,.8),0 0 0 8px rgba(255,255,255,.03)}
 .cal-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;background:#fff;border-radius:calc(var(--r-lg) - 1.5px) calc(var(--r-lg) - 1.5px) 0 0;border-bottom:1px solid var(--line)}
 .cal-bar span{width:11px;height:11px;border-radius:50%;background:#E2E8F3}
@@ -362,7 +368,7 @@ body.lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
-  .hero [class*="in-"],.hero-photo img,.hero-ill,.float,.chat-btn::before{animation:none}
+  .hero [class*="in-"],.hero-photo img,.hero-ill,.float,.chat-btn::before,.agenda-steps li,.agenda-steps i,.agenda-steps em{animation:none}
   .chat:not(.open) .chat-icons img:first-child,.chat:not(.open) .chat-icons img+img,.chat-tip{animation:none}
   .u::after{animation:none;transform:scaleX(1)}
 }
@@ -381,7 +387,7 @@ body.lock{overflow:hidden}
   .fgrid{grid-template-columns:1fr 1fr}
   .legal{grid-template-columns:1fr}
   .agenda-top{grid-template-columns:1fr;gap:32px}
-  .agenda-facts{grid-template-columns:repeat(3,1fr)}
+
   .frame{max-width:440px}
 }
 @media (max-width:900px){
@@ -426,5 +432,5 @@ body.lock{overflow:hidden}
   .chat-tip{font-size:.8rem;padding:11px 14px;animation:tipIn .7s 1.2s var(--spring) both,tipOut .5s 7s var(--ease) forwards}
   .cal{height:760px}
   .agenda-top{grid-template-columns:1fr;gap:28px;margin-bottom:32px}
-  .agenda-facts{grid-template-columns:1fr}
+
 }
