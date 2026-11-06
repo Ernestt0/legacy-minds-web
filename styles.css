@@ -402,6 +402,12 @@ body.lock{overflow:hidden}
 @media (max-width:1080px){.vt-grid{grid-template-columns:1fr;gap:44px}.vt-intro>p{max-width:none}}
 @media (max-width:640px){.vt-item{padding:22px 20px;gap:16px}.vt-item .xi{width:50px;height:50px}.fc{padding:24px 22px}}
 
+/* Bloque oscuro continuo: ¿Por qué elegir…? + Agenda */
+.benef{padding-bottom:clamp(56px,7vw,88px)}
+.agenda.joined{padding-top:0}
+.agenda.joined::before{background:radial-gradient(500px 340px at 95% 100%,rgba(255,122,61,.16),transparent 70%)}
+.agenda.joined>.wrap{border-top:1px solid rgba(255,255,255,.1);padding-top:clamp(56px,7vw,88px)}
+
 /* ---------- Pie ---------- */
 .footer{background:var(--navy);color:var(--muted-d);padding:80px 0 34px;font-size:.95rem}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1.3fr 1.1fr;gap:44px}
