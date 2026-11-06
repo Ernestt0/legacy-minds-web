@@ -104,7 +104,8 @@ p{text-wrap:pretty}
 body.lock{overflow:hidden}
 
 /* ---------- Héroe (inicio) ---------- */
-.hero{position:relative;background:var(--navy);color:#fff;padding:156px 0 116px;overflow:hidden;isolation:isolate}
+.hero{position:relative;background:var(--navy);color:#fff;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;isolation:isolate}
+.hero>.wrap{width:min(var(--wrap),100% - 48px)}
 .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(720px 520px at 88% 12%,rgba(47,107,240,.55),transparent 65%),radial-gradient(620px 440px at 0% 100%,rgba(31,85,209,.42),transparent 70%),radial-gradient(420px 320px at 58% 96%,rgba(255,122,61,.14),transparent 70%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 45% 40%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 45% 40%,#000 25%,transparent 72%)}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
@@ -137,11 +138,17 @@ body.lock{overflow:hidden}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ---------- Cinta de beneficios ---------- */
-.ticker{background:var(--blue-tint);border-bottom:1px solid var(--line);padding:22px 0;display:grid;gap:12px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ticker{position:relative;background:var(--navy);padding:34px 0 46px;overflow:hidden}
+.ticker-in{display:grid;gap:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .track{display:flex;width:max-content;animation:slide 80s linear infinite;will-change:transform}
 .track.rev{animation-direction:reverse;animation-duration:90s}
-.chip{display:inline-flex;align-items:center;gap:10px;margin-right:12px;padding:10px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:.92rem;white-space:nowrap}
-.chip svg{width:16px;height:16px;color:var(--accent-2);flex:none}
+.chip{display:inline-flex;align-items:center;gap:14px;margin-right:16px;padding:9px 26px 9px 9px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);color:#fff;font:600 1rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.ci{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none;box-shadow:inset 0 -3px 8px rgba(0,0,0,.22),0 6px 14px -6px rgba(0,0,0,.6)}
+.ci svg{width:22px;height:22px}
+.c-blue{background:linear-gradient(145deg,#4F86FF,#1F55D1)}
+.c-orange{background:linear-gradient(145deg,#FF9A62,#E8601F)}
+.c-sky{background:linear-gradient(145deg,#4FD1F5,#1690C9)}
+.c-indigo{background:linear-gradient(145deg,#7C83FF,#3B3FC4)}
 
 /* ---------- Secciones ---------- */
 .sec{padding:clamp(80px,10vw,128px) 0}
@@ -156,22 +163,40 @@ body.lock{overflow:hidden}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 
 /* Tarjetas de ventajas (inicio) */
-.tile{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 28px 32px;text-align:center;box-shadow:var(--shadow);overflow:hidden;transition:transform .55s var(--spring),box-shadow .4s,border-color .3s}
-.tile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
-.tile:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:#CCD9F5}
-.tile:hover::after{transform:scaleX(1)}
-.tile .ic{width:120px;height:120px;margin:0 auto 18px;border-radius:30px;background:radial-gradient(circle at 50% 40%,#fff,var(--blue-tint) 70%);display:grid;place-items:center}
-.tile .ic img{width:92px;height:92px;object-fit:contain;transition:transform .6s var(--spring)}
-.tile:hover .ic img{transform:scale(1.08) rotate(-4deg)}
-.tile h3{font-size:1.3rem}
-
-/* Beneficios (inicio): fila horizontal */
-.row-card{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);transition:transform .55s var(--spring),box-shadow .4s,border-color .3s}
-.row-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#CCD9F5}
-.row-card .ic{width:68px;height:68px;border-radius:18px;background:var(--blue-tint);display:grid;place-items:center;flex:none}
-.row-card .ic img{width:50px;height:50px;object-fit:contain;transition:transform .6s var(--spring)}
-.row-card:hover .ic img{transform:scale(1.1) rotate(-5deg)}
+/* Tarjetas desplegables (ventajas y beneficios) */
+.xc{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;align-self:start;transition:transform .55s var(--spring),box-shadow .4s,border-color .3s}
+.xc::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.xc:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:#CCD9F5}
+.xc:hover::after,.xc.open::after{transform:scaleX(1)}
+.xc.open{border-color:#CCD9F5;box-shadow:var(--shadow-lg)}
+.xc-head{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;align-items:center;gap:18px;-webkit-tap-highlight-color:transparent}
+.xc-head:focus-visible{outline:3px solid var(--accent);outline-offset:-3px;border-radius:var(--r)}
+.xc .ic{display:grid;place-items:center;flex:none}
+.xc .ic img{object-fit:contain;transition:transform .6s var(--spring)}
+.xc:hover .ic img,.xc.open .ic img{transform:scale(1.08) rotate(-4deg)}
+.xc h3{flex:1}
+.xc-chev{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--blue);color:#fff;box-shadow:0 8px 16px -8px rgba(31,85,209,.8);transition:transform .55s var(--spring),background-color .3s}
+.xc-chev svg{width:18px;height:18px}
+.xc:hover .xc-chev{background:var(--blue-2)}
+.xc.open .xc-chev{transform:rotate(180deg);background:var(--accent)}
+.xc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.xc-body>div{overflow:hidden}
+.xc-body p{color:var(--muted);font-size:.98rem;line-height:1.65;opacity:0;transform:translateY(-8px);transition:opacity .35s,transform .5s var(--ease)}
+.xc.open .xc-body{grid-template-rows:1fr}
+.xc.open .xc-body p{opacity:1;transform:none;transition-delay:.12s}
+/* Ventajas: tarjeta centrada */
+.tile .xc-head{flex-direction:column;text-align:center;padding:34px 28px 26px;gap:14px}
+.tile .ic{width:120px;height:120px;border-radius:30px;background:radial-gradient(circle at 50% 40%,#fff,var(--blue-tint) 70%)}
+.tile .ic img{width:92px;height:92px}
+.tile h3{font-size:1.3rem;min-height:2.4em;display:flex;align-items:center;justify-content:center}
+.tile .xc-body p{padding:0 28px 30px;text-align:center}
+/* Beneficios: tarjeta horizontal */
+.row-card .xc-head{padding:20px 20px 20px 22px}
+.row-card .ic{width:68px;height:68px;border-radius:18px;background:var(--blue-tint)}
+.row-card .ic img{width:50px;height:50px}
 .row-card h3{font-size:1.08rem;line-height:1.3}
+.row-card .xc-chev{width:34px;height:34px}
+.row-card .xc-body p{padding:0 22px 22px}
 
 /* Servicios (inicio) */
 .svcs{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
@@ -321,7 +346,7 @@ body.lock{overflow:hidden}
 /* ---------- Responsive ---------- */
 @media (max-width:1080px){
   .hero-grid,.phero-grid,.split{grid-template-columns:1fr;gap:52px}
-  .hero{padding:136px 0 96px}
+  .hero{padding:120px 0 80px}
   .hero-visual{max-width:460px}
   .grid3{grid-template-columns:repeat(2,1fr)}
   .tiles.grid3>:last-child{grid-column:1/-1;max-width:calc(50% - 11px);justify-self:center;width:100%}
@@ -342,7 +367,12 @@ body.lock{overflow:hidden}
   .wrap{width:calc(100% - 32px)}
   .header .wrap{height:68px}
   .brand img{width:38px;height:38px}
-  .hero{padding:116px 0 72px}
+  .hero{padding:104px 0 56px;min-height:auto}
+  .chip{font-size:.9rem;padding:7px 20px 7px 7px;gap:11px;margin-right:12px}
+  .ci{width:40px;height:40px}
+  .ci svg{width:19px;height:19px}
+  .ticker{padding:26px 0 36px}
+  .ticker-in{gap:12px}
   .hero-actions .btn{flex:1 1 100%}
   .hero-visual{max-width:360px}
   .float{font-size:.78rem;padding:9px 12px}

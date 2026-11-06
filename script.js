@@ -60,6 +60,15 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setChat(false); });
   }
 
+  // Tarjetas desplegables
+  document.querySelectorAll('.xc-head').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var card = b.closest('.xc');
+      var open = card.classList.toggle('open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
   // Aparición al hacer scroll
   var items = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window) {
