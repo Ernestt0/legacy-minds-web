@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202611061150">
+<link rel="stylesheet" href="styles.css?v=202611061200">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body data-top="light">
@@ -60,11 +60,13 @@
       <span class="chat-qr-label"><img src="img/ico-wechat.png" alt="" width="20" height="17">WeChat</span>
     </div>
   </div>
-  <button class="chat-btn" type="button" aria-expanded="false" aria-controls="chat-panel">
-    <span class="chat-icons" aria-hidden="true"><img src="img/ico-whatsapp-blanco.png" alt="" width="22" height="22"><img src="img/ico-wechat-blanco.png" alt="" width="22" height="19"></span>
-    <span class="chat-txt">Chatea con nosotros</span>
-    <span class="chat-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-  </button>
+  <div class="chat-row">
+    <span class="chat-tip" aria-hidden="true">¿Dudas? ¡Chatea con nosotros!</span>
+    <button class="chat-btn" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="¿Dudas? ¡Chatea con nosotros!">
+      <span class="chat-icons" aria-hidden="true"><img src="img/ico-whatsapp-blanco.png" alt="" width="28" height="28"><img src="img/ico-wechat-blanco.png" alt="" width="28" height="24"></span>
+      <span class="chat-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+    </button>
+  </div>
 </div>
 <main id="main">
 <section class="phero">
@@ -118,6 +120,6 @@
     <div class="copy"><span>© 2025 Legacy Minds Limited. Todos los derechos reservados.</span><span>ES</span></div>
   </div>
 </footer>
-<script src="script.js?v=202611061150"></script>
+<script src="script.js?v=202611061200"></script>
 </body>
 </html>
