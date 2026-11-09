@@ -158,15 +158,14 @@ body.lock{overflow:hidden}
 
 /* ---------- Cinta de beneficios ---------- */
 .ticker{position:relative;background:linear-gradient(180deg,var(--navy) 50%,#fff 50%);padding:8px 0 0;overflow-x:clip}
-.ticker-box{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;padding:22px 0;background:linear-gradient(120deg,#2565EC 0%,#1A4DC4 45%,#11338F 100%);box-shadow:0 40px 70px -36px rgba(10,26,63,.75),inset 0 1px 0 rgba(255,255,255,.18)}
-.ticker-box::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px 200px at 100% 100%,rgba(255,122,61,.32),transparent 70%),radial-gradient(380px 180px at 0% 0%,rgba(255,255,255,.14),transparent 70%)}
-.ticker-box::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px}
+.ticker-box{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;padding:20px 0;background:linear-gradient(180deg,#fff,#F6F8FC);border:1px solid #E1E8F3;box-shadow:0 40px 70px -36px rgba(10,26,63,.55)}
+.ticker-box::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px 200px at 100% 100%,rgba(255,122,61,.08),transparent 70%),radial-gradient(380px 180px at 0% 0%,rgba(47,107,240,.08),transparent 70%)}
 .ticker::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:160px;background:linear-gradient(180deg,rgba(10,26,63,0) 0%,rgba(10,26,63,.75) 55%,var(--navy) 100%);pointer-events:none;z-index:1}
 .ticker-in{display:grid;gap:12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .track{display:flex;width:max-content;animation:slide 120s linear infinite;will-change:transform}
 .track.rev{animation-direction:reverse;animation-duration:135s}
-.chip{display:inline-flex;align-items:center;gap:11px;margin-right:12px;padding:12px 22px 12px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font:600 .98rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.ci{width:24px;height:24px;display:grid;place-items:center;color:#CFE0FF;flex:none;transition:color .3s,transform .5s var(--spring)}
+.chip{display:inline-flex;align-items:center;gap:11px;margin-right:12px;padding:12px 22px 12px 16px;border-radius:999px;background:#F1F5FB;border:1px solid #E1E8F3;color:var(--navy);font:600 .98rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap}
+.ci{width:24px;height:24px;display:grid;place-items:center;color:var(--blue);flex:none;transition:color .3s,transform .5s var(--spring)}
 .ci svg{width:22px;height:22px}
 .c-blue{background:linear-gradient(145deg,#4F86FF,#1F55D1)}
 a.chip{transition:background .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease),padding .35s var(--ease)}
@@ -174,7 +173,7 @@ a.chip{transition:background .35s var(--ease),border-color .35s var(--ease),tran
 .chip-go svg{width:18px;height:18px}
 @media (hover:hover){
   .ticker-in:hover .track{animation-play-state:paused}
-  a.chip:hover{background:#fff;border-color:#fff;color:var(--ink);transform:translateY(-2px)}
+  a.chip:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-2px)}
   a.chip:hover .chip-go{width:18px;opacity:1;margin-left:0}
   a.chip:hover .ci{color:var(--accent);transform:scale(1.12) rotate(-6deg)}
 }
@@ -587,17 +586,22 @@ a.chip{transition:background .35s var(--ease),border-color .35s var(--ease),tran
 
 }
 
-/* Agenda / CTA en azul vivo para diferenciarla de Beneficios y del pie */
-.agenda.bright{background:linear-gradient(135deg,#2160E6 0%,#1A4DC4 48%,#123A9C 100%)}
-.agenda.bright::before{background:radial-gradient(640px 400px at 8% 0%,rgba(255,255,255,.16),transparent 70%),radial-gradient(520px 360px at 100% 100%,rgba(255,122,61,.28),transparent 70%)}
-.agenda.bright::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 20% 20%,#000 10%,transparent 65%);mask-image:radial-gradient(ellipse at 20% 20%,#000 10%,transparent 65%)}
-.agenda.bright .hl{color:#FFC4A3}
-.agenda.bright .eyebrow{color:#fff}
-.agenda.bright .agenda-top p,.agenda.bright .agenda-steps span{color:rgba(255,255,255,.84)}
-.agenda.bright .agenda-steps small{color:#D6E3FF}
-.agenda.bright .agenda-steps li{background:rgba(6,20,60,.22);border-color:rgba(255,255,255,.16)}
-.agenda.bright .agenda-steps i{background:rgba(6,20,60,.45)}
-.agenda.bright .cal-wrap{background:linear-gradient(135deg,rgba(255,154,102,.95),rgba(255,255,255,.35) 45%,rgba(255,255,255,.12));box-shadow:0 50px 90px -40px rgba(4,14,45,.85),0 0 0 8px rgba(255,255,255,.06)}
+/* Agenda / CTA en tonos suaves (navy, azul del logo y plata) */
+.agenda.soft{background:linear-gradient(160deg,#F7F9FD 0%,#EDF2F9 55%,#E5ECF6 100%);color:var(--ink);border-top:1px solid #DCE4F1}
+.agenda.soft::before{background:radial-gradient(620px 420px at 6% 0%,rgba(47,107,240,.10),transparent 70%),radial-gradient(520px 360px at 100% 100%,rgba(255,122,61,.09),transparent 70%)}
+.agenda.soft::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(10,26,63,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,26,63,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 20% 20%,#000 10%,transparent 65%);mask-image:radial-gradient(ellipse at 20% 20%,#000 10%,transparent 65%)}
+.agenda.soft h2{color:var(--navy)}
+.agenda.soft .hl{color:var(--blue)}
+.agenda.soft .agenda-top p{color:var(--muted)}
+.agenda.soft .agenda-steps::before{background:#D3DDEC}
+.agenda.soft .agenda-steps li{background:#fff;border-color:#DCE4F1;box-shadow:0 1px 2px rgba(15,27,51,.04);animation-name:stepOnS}
+.agenda.soft .agenda-steps i{background:#EAF0FB;color:var(--blue);animation-name:stepIconS}
+.agenda.soft .agenda-steps small{color:var(--blue)}
+.agenda.soft .agenda-steps b{color:var(--navy)}
+.agenda.soft .agenda-steps span{color:var(--muted)}
+.agenda.soft .cal-wrap{background:linear-gradient(135deg,rgba(255,122,61,.55),rgba(31,85,209,.28) 45%,#DCE4F1);box-shadow:0 44px 80px -40px rgba(10,26,63,.4),0 0 0 8px rgba(255,255,255,.6)}
+@keyframes stepOnS{0%,30%{border-color:rgba(255,122,61,.55);box-shadow:0 18px 34px -18px rgba(10,26,63,.35);transform:translateX(-6px)}36%,100%{border-color:#DCE4F1;box-shadow:0 1px 2px rgba(15,27,51,.04);transform:none}}
+@keyframes stepIconS{0%,30%{background:var(--accent);color:#fff;box-shadow:0 10px 22px -8px rgba(255,122,61,.8)}36%,100%{background:#EAF0FB;color:var(--blue);box-shadow:none}}
 
 /* ---------- Tus ventajas (v4) ---------- */
 .adv{position:relative;isolation:isolate;overflow:hidden}
@@ -669,9 +673,9 @@ a.chip{transition:background .35s var(--ease),border-color .35s var(--ease),tran
 /* Introducción con insignia del servicio */
 .svc-intro{background:var(--blue-tint);position:relative;box-shadow:inset 0 -1px 0 #D9E3F7}
 .intro2{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:center}
-.sbadge{position:relative;display:flex;flex-direction:column;gap:10px;padding:30px 28px;border-radius:var(--r-lg);background:linear-gradient(150deg,#2565EC,#1A4DC4 50%,#11338F);color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 34px 60px -30px rgba(17,51,143,.8)}
+.sbadge{position:relative;display:flex;flex-direction:column;gap:10px;padding:30px 28px;border-radius:var(--r-lg);background:linear-gradient(150deg,#1D3366,#0A1A3F 70%);color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 34px 60px -30px rgba(10,26,63,.7)}
 .sbadge::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(240px 180px at 100% 100%,rgba(255,122,61,.35),transparent 70%),linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px) 0 0/32px 32px}
-.sb-ic{color:#fff}
+.sb-ic{color:#8DB0FF}
 .sb-ic svg{width:46px;height:46px;overflow:visible}
 .sb-ic svg *{stroke-dasharray:1;stroke-dashoffset:0}
 .sbadge.in .sb-ic svg *{animation:drawLine 1.6s .2s var(--ease) both}
