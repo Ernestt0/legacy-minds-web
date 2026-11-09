@@ -1,11 +1,27 @@
 (function () {
   var header = document.querySelector('.header');
-  var keepSolid = document.body.getAttribute('data-top') === 'light';
-
+  var DARK = '.dark, .footer, .hero, .ph-bg';
+  var ticking = false;
   function onScroll() {
-    if (header) header.classList.toggle('solid', keepSolid || window.scrollY > 24);
+    ticking = false;
+    if (!header) return;
+    var solid = window.scrollY > 24;
+    header.classList.toggle('solid', solid);
+    // Tono de la cápsula según la sección que pasa por detrás
+    var dark = true, y = 42;
+    var els = document.elementsFromPoint ? document.elementsFromPoint(window.innerWidth / 2, y) : [];
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (header.contains(el) || el.closest('.chat')) continue;
+      dark = !!el.closest(DARK);
+      break;
+    }
+    header.classList.toggle('on-dark', dark);
+    header.classList.toggle('on-light', !dark);
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', req);
   onScroll();
 
   // Menú móvil
