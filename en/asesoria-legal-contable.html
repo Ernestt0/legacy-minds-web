@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=202611091710">
+<link rel="stylesheet" href="../styles.css?v=202611091730">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -53,23 +53,20 @@
   <a class="btn btn-accent" href="https://cal.com/legacymidslimited/30min" target="_blank" rel="noopener">Book</a>
 </nav>
 <div class="chat" id="chat">
-  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with us">
-    <div class="chat-list">
-      <a class="chat-opt" href="https://wa.me/573203467217?text=Hello%20Legacy%20Minds,%20I%20would%20like%20more%20information%20about" target="_blank" rel="noopener"><span class="chat-ico wa-bg"><img src="../img/ico-whatsapp.png" alt="" width="28" height="28"></span>WhatsApp</a>
-      <button class="chat-opt" type="button" data-wechat><span class="chat-ico wc-bg"><img src="../img/ico-wechat.png" alt="" width="28" height="24"></span>WeChat</button>
-    </div>
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="WeChat">
     <div class="chat-qr">
-      <button class="chat-back" type="button" data-wechat-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="chat-close" type="button" data-chat-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <img src="../img/wechat-qr.png" alt="WeChat QR code" width="220" height="223">
       <span class="chat-qr-label"><img src="../img/ico-wechat.png" alt="" width="20" height="17">WeChat</span>
     </div>
   </div>
-  <div class="chat-row">
-    <span class="chat-tip" aria-hidden="true"><span class="tip-dots"><i></i><i></i><i></i></span><span class="tip-txt">Questions? Chat with us!</span></span>
-    <button class="chat-btn" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Questions? Chat with us!">
-      <span class="chat-icons" aria-hidden="true"><img src="../img/ico-whatsapp-blanco.png" alt="" width="28" height="28"><img src="../img/ico-wechat-blanco.png" alt="" width="28" height="24"></span>
-      <span class="chat-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-    </button>
+  <div class="cswitch" role="group" aria-label="Chat with us">
+    <span class="cs-text" aria-hidden="true"><small><i></i>Chat with us</small><span class="cs-name"><span>WhatsApp</span><span>WeChat</span></span></span>
+    <span class="cs-track">
+      <span class="cs-thumb" aria-hidden="true"></span>
+      <a class="cs-opt wa" href="https://wa.me/573203467217?text=Hello%20Legacy%20Minds,%20I%20would%20like%20more%20information%20about" target="_blank" rel="noopener" aria-label="WhatsApp" data-ch="wa"><img class="off" src="../img/ico-whatsapp-blanco.png" alt="" width="24" height="24"><img class="on" src="../img/ico-whatsapp-blanco.png" alt="" width="24" height="24"></a>
+      <button class="cs-opt wc" type="button" aria-label="WeChat" aria-controls="chat-panel" aria-expanded="false" data-ch="wc"><img class="off" src="../img/ico-wechat-blanco.png" alt="" width="24" height="21"><img class="on" src="../img/ico-wechat-blanco.png" alt="" width="24" height="21"></button>
+    </span>
   </div>
 </div>
 <main id="main">
@@ -154,6 +151,6 @@
     <div class="copy"><span>© 2025 Legacy Minds Limited. All rights reserved.</span><span>EN</span></div>
   </div>
 </footer>
-<script src="../script.js?v=202611091710"></script>
+<script src="../script.js?v=202611091730"></script>
 </body>
 </html>
