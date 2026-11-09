@@ -157,25 +157,26 @@ body.lock{overflow:hidden}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ---------- Cinta de beneficios ---------- */
-.ticker{position:relative;background:linear-gradient(180deg,var(--navy) 50%,#fff 50%);padding:8px 0 0;overflow-x:clip}
-.ticker-box{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;padding:20px 0;background:linear-gradient(180deg,#fff,#F6F8FC);border:1px solid #E1E8F3;box-shadow:0 40px 70px -36px rgba(10,26,63,.55)}
-.ticker-box::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px 200px at 100% 100%,rgba(255,122,61,.08),transparent 70%),radial-gradient(380px 180px at 0% 0%,rgba(47,107,240,.08),transparent 70%)}
+.ticker{position:relative;background:#fff;padding:26px 0;border-bottom:1px solid var(--line);overflow-x:clip}
+
+
 .ticker::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:160px;background:linear-gradient(180deg,rgba(10,26,63,0) 0%,rgba(10,26,63,.75) 55%,var(--navy) 100%);pointer-events:none;z-index:1}
-.ticker-in{display:grid;gap:12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.track{display:flex;width:max-content;animation:slide 120s linear infinite;will-change:transform}
+.ticker-in{-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;width:max-content;animation:slide 110s linear infinite;will-change:transform}
 .track.rev{animation-direction:reverse;animation-duration:135s}
-.chip{display:inline-flex;align-items:center;gap:11px;margin-right:12px;padding:12px 22px 12px 16px;border-radius:999px;background:#F1F5FB;border:1px solid #E1E8F3;color:var(--navy);font:600 .98rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap}
-.ci{width:24px;height:24px;display:grid;place-items:center;color:var(--blue);flex:none;transition:color .3s,transform .5s var(--spring)}
-.ci svg{width:22px;height:22px}
+.chip{position:relative;display:inline-flex;align-items:center;gap:10px;padding:8px 0;margin-right:64px;color:var(--ink);font:500 1.02rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap}
+.chip::after{content:"";position:absolute;right:-35px;top:50%;width:5px;height:5px;border-radius:50%;background:#C9D3E3;transform:translateY(-50%)}
+.ci{width:22px;height:22px;display:grid;place-items:center;color:#7C8DAB;flex:none;transition:color .3s,transform .5s var(--spring)}
+.ci svg{width:20px;height:20px}
 .c-blue{background:linear-gradient(145deg,#4F86FF,#1F55D1)}
-a.chip{transition:background .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease),padding .35s var(--ease)}
+a.chip{transition:color .3s}
 .chip-go{display:inline-grid;place-items:center;width:0;opacity:0;margin-left:-14px;color:var(--accent);transition:width .35s var(--ease),opacity .35s var(--ease),margin .35s var(--ease)}
 .chip-go svg{width:18px;height:18px}
 @media (hover:hover){
   .ticker-in:hover .track{animation-play-state:paused}
-  a.chip:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-2px)}
+  a.chip:hover{color:var(--blue)}
   a.chip:hover .chip-go{width:18px;opacity:1;margin-left:0}
-  a.chip:hover .ci{color:var(--accent);transform:scale(1.12) rotate(-6deg)}
+  a.chip:hover .ci{color:var(--accent);transform:scale(1.1)}
 }
 
 
@@ -552,11 +553,12 @@ a.chip{transition:background .35s var(--ease),border-color .35s var(--ease),tran
   .header .wrap{height:68px}
   .brand img{width:38px;height:38px}
   .hero{padding:104px 0 56px;min-height:auto}
-  .chip{font-size:.88rem;padding:10px 18px 10px 13px;gap:9px;margin-right:10px}
+  .chip{font-size:.92rem;margin-right:48px}
+  .chip::after{right:-26px}
   .ci{width:20px;height:20px}
-  .ci svg{width:19px;height:19px}
-  .ticker-box{padding:16px 0;border-radius:22px}
-  .ticker-in{gap:10px}
+  .ci svg{width:18px;height:18px}
+  .ticker{padding:18px 0}
+
   .hero-actions .btn{flex:1 1 100%}
   .hero-visual{max-width:360px}
   .float{font-size:.78rem;padding:9px 12px}
