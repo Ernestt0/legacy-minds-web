@@ -905,3 +905,7 @@ a.chip{transition:color .3s}
   .nf-chip{font-size:.82rem;padding:9px 13px 9px 10px}
 }
 @media (prefers-reduced-motion:reduce){.nf-d,.nf-sweep,.nf-blip,.nf-orbit,.nf-logo{animation:none}.nf-blip{opacity:1}}
+/* Fotos de servicios: velo de marca uniforme */
+.svc-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,26,63,0) 55%,rgba(10,26,63,.28) 100%),linear-gradient(135deg,rgba(31,85,209,.10),rgba(255,122,61,.04));transition:opacity .5s}
+@media (hover:hover){.svc:hover .svc-media::after{opacity:.4}}
+.svc-media img[src*="svc-legal"]{object-position:50% 22%}
