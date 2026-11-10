@@ -909,3 +909,15 @@ a.chip{transition:color .3s}
 .svc-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,26,63,0) 55%,rgba(10,26,63,.28) 100%),linear-gradient(135deg,rgba(31,85,209,.10),rgba(255,122,61,.04));transition:opacity .5s}
 @media (hover:hover){.svc:hover .svc-media::after{opacity:.4}}
 .svc-media img[src*="svc-legal"]{object-position:50% 22%}
+
+/* ---------- Correcciones de uso en dispositivos ---------- */
+/* El contenedor del chat no debe bloquear toques; solo sus piezas visibles */
+.chat{pointer-events:none}
+.chat .cs-track,.chat.open .chat-panel{pointer-events:auto}
+/* Las columnas de portada pueden encogerse; textos largos se ajustan */
+.hero-grid>*,.phero-grid>*,.intro2>*,.split>*{min-width:0}
+.eyebrow{flex-wrap:wrap;row-gap:4px}
+/* En pantallas táctiles, el selector de idioma con área de toque cómoda */
+@media (hover:none){.lang a{padding:12px 13px}}
+.drawer .btn{justify-content:center}
+@media (hover:none){.footer ul{gap:2px}.footer ul a{display:inline-flex;align-items:center;min-height:40px}}
