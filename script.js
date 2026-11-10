@@ -150,6 +150,9 @@
     } else { visible = true; run(); }
   });
 
+  // Año actual en el pie
+  document.querySelectorAll('[data-year]').forEach(function (y) { y.textContent = new Date().getFullYear(); });
+
   // Aparición al hacer scroll
   var items = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window) {
