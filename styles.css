@@ -916,8 +916,37 @@ a.chip{transition:color .3s}
 .chat .cs-track,.chat.open .chat-panel{pointer-events:auto}
 /* Las columnas de portada pueden encogerse; textos largos se ajustan */
 .hero-grid>*,.phero-grid>*,.intro2>*,.split>*{min-width:0}
-.eyebrow{flex-wrap:wrap;row-gap:4px}
+.eyebrow{max-width:100%;align-items:baseline}
+.eyebrow::before{flex:none;align-self:center}
 /* En pantallas táctiles, el selector de idioma con área de toque cómoda */
 @media (hover:none){.lang a{padding:12px 13px}}
 .drawer .btn{justify-content:center}
 @media (hover:none){.footer ul{gap:2px}.footer ul a{display:inline-flex;align-items:center;min-height:40px}}
+
+/* ---------- Ritmo tipográfico ---------- */
+h1,h2,h3,.lead,.nf-title{text-wrap:balance}
+p,li span,.adv-card p,.fc p{text-wrap:pretty}
+.intro2-txt{max-width:68ch}
+.legal>div:first-child p{max-width:78ch}
+@media (max-width:640px){
+  .agenda h2{font-size:clamp(1.6rem,7.4vw,2rem);line-height:1.15}
+}
+@media (max-width:640px){
+  .hero .eyebrow{font-size:.68rem;letter-spacing:.12em;line-height:1.5;align-items:flex-start}
+  .hero .eyebrow::before{align-self:auto;margin-top:.42em}
+  .intro2-txt p:first-child{font-size:1.08rem;line-height:1.6}
+}
+/* Frase subrayada del título: en celulares pequeños puede partirse sin cortarse */
+@media (max-width:440px){
+  .hero h1{font-size:clamp(2rem,10vw,2.35rem)}
+  .u{white-space:normal;background:linear-gradient(var(--accent),var(--accent)) 0 96%/100% .13em no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .u::after{display:none}
+}
+/* Etiquetas flotantes de portada sin salirse en pantallas medianas */
+@media (max-width:1320px){.phero-visual .float.b{right:-2%}}
+/* Tableta vertical: insignia del servicio en franja horizontal */
+@media (min-width:641px) and (max-width:1080px){
+  .sbadge{max-width:none;flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:22px;row-gap:6px;padding:24px 28px}
+  .sb-n{margin-top:0}
+  .sb-name{flex:1;min-width:180px}
+}
