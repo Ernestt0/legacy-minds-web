@@ -129,7 +129,6 @@
       if (cap) {
         cap.classList.add('swap');
         setTimeout(function () {
-          cap.querySelector('.vt-cap-n').textContent = (n < 9 ? '0' : '') + (n + 1);
           cap.querySelector('b').textContent = lis[n].querySelector('b').textContent;
           cap.classList.remove('swap');
         }, 220);
