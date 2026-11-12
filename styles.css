@@ -976,3 +976,4 @@ p,li span,.adv-card p,.fc p{text-wrap:pretty}
 .checks i{background:linear-gradient(145deg,#F1F5FC,#E3EBF8);color:#3E63B8}
 .checks b{letter-spacing:-.01em}
 .checks span{line-height:1.55}
+.ph-bg picture{display:block;width:100%;height:100%}

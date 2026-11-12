@@ -67,7 +67,11 @@
     function setQr(open) {
       chat.classList.toggle('open', open);
       wcBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (open) setCh('wc');
+      if (open) {
+        setCh('wc');
+        var q = chat.querySelector('img[data-src]');
+        if (q) { q.src = q.getAttribute('data-src'); q.removeAttribute('data-src'); }
+      }
     }
     chat.querySelectorAll('.cs-opt').forEach(function (o) {
       o.addEventListener('pointerenter', function () { hold = true; setCh(o.getAttribute('data-ch')); });

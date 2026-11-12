@@ -31,15 +31,15 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=202611121540">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css?v=202611121800">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="sr" href="#main">Home</a>
 <header class="header">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Legacy Minds Limited"><img src="../img/favicon.png" alt="" width="44" height="44"><span><b>Legacy Minds</b><small>LIMITED</small></span></a>
+    <a class="brand" href="index.html" aria-label="Legacy Minds Limited"><img src="../img/logo-mark.webp" alt="" width="44" height="44"><span><b>Legacy Minds</b><small>LIMITED</small></span></a>
     <ul class="nav">
       <li><a href="index.html">Home</a></li>
       <li class="has-menu"><button type="button" aria-haspopup="true" aria-expanded="false">Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="menu"><a href="hong-kong.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18" pathLength="1"/><path d="M5 21V8l7-4 7 4v13" pathLength="1"/><path d="M9 21v-5h6v5M9 10.5h.01M15 10.5h.01M9 13.5h.01M15 13.5h.01" pathLength="1"/></svg></span>Hong Kong Structure</a><a href="logistica-aduanas.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v10H2z" pathLength="1"/><path d="M13 9.5h4.2L21 13v3h-8" pathLength="1"/><circle cx="6.5" cy="17.5" r="1.9" pathLength="1"/><circle cx="17" cy="17.5" r="1.9" pathLength="1"/></svg></span>Logistics and Customs</a><a href="sourcing-productos.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7" pathLength="1"/><path d="M20.5 20.5l-4.9-4.9" pathLength="1"/></svg></span>Product Sourcing</a><a href="verificacion-proveedores.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8l7.5 3v5.6c0 4.6-3.2 7.9-7.5 9.6-4.3-1.7-7.5-5-7.5-9.6V5.8z" pathLength="1"/><path d="M8.5 11.8l2.5 2.5 4.6-5" pathLength="1"/></svg></span>Supplier Verification</a><a href="asesoria-legal-contable.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 21h10M5 7h14" pathLength="1"/><path d="M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z" pathLength="1"/></svg></span>Legal Advisory</a></div></li>
@@ -68,16 +68,16 @@
   <div class="chat-panel" id="chat-panel" role="dialog" aria-label="WeChat">
     <div class="chat-qr">
       <button class="chat-close" type="button" data-chat-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      <img src="../img/wechat-qr.png" alt="WeChat QR code" width="220" height="223">
-      <span class="chat-qr-label"><img src="../img/ico-wechat.png" alt="" width="20" height="17">WeChat</span>
+      <img data-src="../img/wechat-qr-sm.png" decoding="async" alt="WeChat QR code" width="220" height="223">
+      <span class="chat-qr-label"><img src="../img/ico-wechat-sm.png" alt="" width="20" height="17">WeChat</span>
     </div>
   </div>
   <div class="cswitch" role="group" aria-label="Chat with us">
     <span class="cs-tip" aria-hidden="true"><span class="tip-dots"><i></i><i></i><i></i></span><span class="cs-say">Message us on</span><span class="cs-name"><span>WhatsApp</span><span>WeChat</span></span></span>
     <span class="cs-track">
       <span class="cs-thumb" aria-hidden="true"></span>
-      <a class="cs-opt wa" href="https://wa.me/573203467217?text=Hello%20Legacy%20Minds,%20I%20would%20like%20more%20information%20about" target="_blank" rel="noopener" aria-label="WhatsApp" data-ch="wa"><img class="off" src="../img/ico-whatsapp.png" alt="" width="24" height="24"><img class="on" src="../img/ico-whatsapp-blanco.png" alt="" width="24" height="24"></a>
-      <button class="cs-opt wc" type="button" aria-label="WeChat" aria-controls="chat-panel" aria-expanded="false" data-ch="wc"><img class="off" src="../img/ico-wechat.png" alt="" width="24" height="21"><img class="on" src="../img/ico-wechat-blanco.png" alt="" width="24" height="21"></button>
+      <a class="cs-opt wa" href="https://wa.me/573203467217?text=Hello%20Legacy%20Minds,%20I%20would%20like%20more%20information%20about" target="_blank" rel="noopener" aria-label="WhatsApp" data-ch="wa"><img class="off" src="../img/ico-whatsapp-sm.png" alt="" width="24" height="24"><img class="on" src="../img/ico-whatsapp-blanco-sm.png" alt="" width="24" height="24"></a>
+      <button class="cs-opt wc" type="button" aria-label="WeChat" aria-controls="chat-panel" aria-expanded="false" data-ch="wc"><img class="off" src="../img/ico-wechat-sm.png" alt="" width="24" height="21"><img class="on" src="../img/ico-wechat-blanco-sm.png" alt="" width="24" height="21"></button>
     </span>
   </div>
 </div>
@@ -112,12 +112,12 @@
   </div>
 </section>
 </main>
-<script src="../map.js?v=202611121540" defer></script>
+<script src="../map.js?v=202611121800" defer></script>
 <footer class="footer" id="contacto">
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a class="brand" href="index.html" aria-label="Legacy Minds Limited"><img src="../img/favicon.png" alt="" width="44" height="44"><span><b>Legacy Minds</b><small>LIMITED</small></span></a>
+        <a class="brand" href="index.html" aria-label="Legacy Minds Limited"><img src="../img/logo-mark.webp" alt="" width="44" height="44"><span><b>Legacy Minds</b><small>LIMITED</small></span></a>
         <p class="tag">Your strategic bridge between Asia and the world. Integrated sourcing, logistics and finance solutions.</p>
         <div class="soc">
           <a href="https://www.instagram.com/legacymindslimited/" target="_blank" rel="noopener" aria-label="Instagram" class="s-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
@@ -133,7 +133,7 @@
       <div><h4>Contact</h4>
         <ul><li><a href="mailto:legacymindslimited@gmail.com">legacymindslimited@gmail.com</a></li><li><a href="tel:+573203467217">+57 (320) 346 7217</a></li></ul>
         <a class="btn btn-accent" href="https://cal.com/legacymidslimited/30min" target="_blank" rel="noopener">Book</a>
-        <a href="https://www.trustpilot.com/evaluate/legacymindslimited.com" target="_blank" rel="noopener" aria-label="Rate us on Trustpilot"><img class="tp" src="../img/trustpilot.webp" alt="Trustpilot" width="150" height="72"></a>
+        <a href="https://www.trustpilot.com/evaluate/legacymindslimited.com" target="_blank" rel="noopener" aria-label="Rate us on Trustpilot"><img class="tp" src="../img/trustpilot-sm.webp" loading="lazy" decoding="async" alt="Trustpilot" width="150" height="72"></a>
         <div><a class="btn btn-ghost dark-ghost" href="https://www.trustpilot.com/evaluate/legacymindslimited.com" target="_blank" rel="noopener" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.28)">Rate us</a></div>
       </div>
     </div>
@@ -147,6 +147,6 @@
     <div class="copy"><span>© <span data-year>2026</span> Legacy Minds Limited. All rights reserved.</span><span>EN</span></div>
   </div>
 </footer>
-<script src="../script.js?v=202611121540"></script>
+<script src="../script.js?v=202611121800"></script>
 </body>
 </html>
