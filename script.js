@@ -166,3 +166,47 @@
     items.forEach(function (el) { el.classList.add('in'); });
   }
 })();
+
+/* Google Analytics con consentimiento (Ley 1581 de 2012) */
+(function () {
+  var GA = 'G-00P0QZTNF9', KEY = 'lml-cookies';
+  var en = document.documentElement.lang === 'en';
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = window.gtag || gtag;
+  var loaded = false;
+  function load() {
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA; document.head.appendChild(s);
+    gtag('js', new Date()); gtag('config', GA, { anonymize_ip: true });
+  }
+  function track(name, params) { if (loaded) gtag('event', name, params || {}); }
+  // Clics que indican interés de contacto
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a,button'); if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var where = a.closest('header') ? 'menu' : a.closest('footer') ? 'pie' : a.closest('.chat') ? 'chat' : (a.closest('section') || {}).id || 'pagina';
+    if (/cal\.com/.test(href)) track('agendar_cita', { ubicacion: where });
+    else if (/wa\.me|whatsapp/.test(href)) track('contacto_whatsapp', { ubicacion: where });
+    else if (a.matches('.cs-opt.wc,[data-wechat]')) track('contacto_wechat', { ubicacion: where });
+    else if (/^mailto:/.test(href)) track('contacto_correo', { ubicacion: where });
+    else if (/^tel:/.test(href)) track('contacto_telefono', { ubicacion: where });
+  }, true);
+  var choice = get();
+  if (choice === 'si') { load(); return; }
+  if (choice === 'no') return;
+  var t = en
+    ? { m: 'We use analytics cookies to understand how visitors use this site and improve it. You can accept or reject them.', a: 'Accept', r: 'Reject' }
+    : { m: 'Usamos cookies de analítica para entender cómo se usa el sitio y mejorarlo. Puedes aceptarlas o rechazarlas.', a: 'Aceptar', r: 'Rechazar' };
+  var b = document.createElement('div');
+  b.className = 'cookie'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-live', 'polite'); b.setAttribute('aria-label', en ? 'Cookies' : 'Aviso de cookies');
+  b.innerHTML = '<span class="cookie-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 3.5 3.5 3 3 0 0 0 3.5 3.5 3 3 0 0 0 2.5 2.5z"/><path d="M8.5 9.5h.01M15.5 15.5h.01M9 15h.01M12 12h.01"/></svg></span><p>' + t.m + '</p><div class="cookie-btns"><button type="button" class="cookie-no">' + t.r + '</button><button type="button" class="cookie-si">' + t.a + '</button></div>';
+  document.body.appendChild(b); document.body.classList.add('has-cookie');
+  requestAnimationFrame(function () { setTimeout(function () { b.classList.add('in'); }, 600); });
+  function close(v) { set(v); b.classList.remove('in'); document.body.classList.remove('has-cookie'); setTimeout(function () { b.remove(); }, 450); if (v === 'si') load(); }
+  b.querySelector('.cookie-si').addEventListener('click', function () { close('si'); });
+  b.querySelector('.cookie-no').addEventListener('click', function () { close('no'); });
+})();
